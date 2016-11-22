@@ -2,7 +2,7 @@
 
 <http://www.ntnu.no/starfish>
 
-Copyright 2012-2016 Vinzenz Eck (vinzenz.g.eck@ntnu.no)
+Copyright 2012-2016 Vinzenz Eck
 
 ## License
 
