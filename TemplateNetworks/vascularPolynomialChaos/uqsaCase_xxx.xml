@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<template id="001">
+ <caseUQSA class="UqsaCase">
+      <createSample>True</createSample>   
+      <createEvaluationXmlFiles>True</createEvaluationXmlFiles>
+      <simulateEvaluations>True</simulateEvaluations>
+      <localEvaluation>True</localEvaluation>        
+      <multiprocessing>True</multiprocessing>
+      <numberOfProcessors>12</numberOfProcessors>
+      <simulateEvaluationNumbers>0</simulateEvaluationNumbers>
+      <preProcessData>True</preProcessData> 
+      <postProcessing>True</postProcessing>
+      <sampleManager class="sampleManager">
+      <samplingMethod>S</samplingMethod>
+      <dependentCase>False</dependentCase>
+        </sampleManager>
+      <uqsaMethods>
+          <uqsaMethod class="uqsaMethodMonteCarlo" Id="MC-20">
+              <sampleSize>20</sampleSize>
+              <sensitivityAnalysis>False</sensitivityAnalysis>
+          </uqsaMethod>
+          <uqsaMethod class="uqsaMethodMonteCarlo" Id="MC-40">
+              <sampleSize>40</sampleSize>
+              <sensitivityAnalysis>False</sensitivityAnalysis>
+          </uqsaMethod>
+          <uqsaMethod Id="MCpb-20" class="uqsaMethodMonteCarloParametrizedBootstrapping">
+            <sampleSize>20</sampleSize>
+            <sensitivityAnalysis>False</sensitivityAnalysis>
+            <averageNumber>4</averageNumber>
+            <chunkSize>20</chunkSize>
+          </uqsaMethod>
+          <uqsaMethod class="uqsaMethodPolynomialChaos" Id="PC-1">
+              <polynomialOrder>1</polynomialOrder>
+              <sampleFactor>2</sampleFactor>
+          </uqsaMethod>
+      </uqsaMethods>      
+      <locationOfInterestManager class="LocationOfInterestManager">
+          <evaluateSimulationTime>True</evaluateSimulationTime>
+    	  <locationsOfInterest>
+    	  	<locationOfInterest class="LocationOfInterest" Id="exampleLocation"> 
+    	  		<quantitiesOfInterestToProcess>Pressure Flow</quantitiesOfInterestToProcess>
+    	  		<queryLocation>vessel_1</queryLocation>
+    	  		<xVal unit="m">0.05</xVal>
+    	  		<confidenceAlpha>5</confidenceAlpha>
+    	  	</locationOfInterest>
+    	  </locationsOfInterest>
+      </locationOfInterestManager>      
+ </caseUQSA>
+</template>

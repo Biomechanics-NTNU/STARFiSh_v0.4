@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<singleBifurcation.xml id="1.0" version="4.3">
+  <simulationContext>
+    <description>my STARFiSh simulation</description>
+    <totalTime unit="s">0.5</totalTime>
+    <timeSaveBegin unit="s">0</timeSaveBegin>
+    <minSaveDt>-1</minSaveDt>
+	<maxMemory unit="MB">500</maxMemory>
+    <CFL>0.5</CFL>
+    <gravitationalField>False</gravitationalField>
+    <gravityConstant unit="m s-2">-9.81</gravityConstant>
+    <centralVenousPressure unit="mmHg">0.0</centralVenousPressure>
+    <minimumVenousPressure unit="mmHg">0.0</minimumVenousPressure>
+  </simulationContext>
+  <solverCalibration>
+    <rigidAreas>False</rigidAreas>
+    <simplifyEigenvalues>False</simplifyEigenvalues>
+    <riemannInvariantUnitBase>Pressure</riemannInvariantUnitBase>
+    <automaticGridAdaptation>True</automaticGridAdaptation>
+    <solvingSchemeField>MacCormack_Flux</solvingSchemeField>
+  </solverCalibration>
+  <initialisationControls>
+    <initialsationMethod>ConstantPressure</initialsationMethod>
+    <initMeanFlow unit="m3 s-1">0.000125</initMeanFlow>
+    <initMeanPressure unit="mmHg">100.</initMeanPressure>
+    <estimateWindkesselCompliance>No</estimateWindkesselCompliance>
+    <compPercentageWK3>0.8</compPercentageWK3>
+    <compPercentageTree>0.2</compPercentageTree>
+    <compTotalSys unit="m3 Pa-1">4.895587352e-08</compTotalSys>
+  </initialisationControls>
+  <globalFluid>
+    <my unit="Pa s">1.e-6</my>
+    <rho unit="kg m-3">1050.0</rho>
+    <gamma>2.0</gamma>
+  </globalFluid>
+  <communicators>		
+  </communicators>
+  <boundaryConditions>
+    <boundaryCondition vesselId="0">
+      <Flow-Sinus2>
+        <amp unit="ml s-1">400</amp>
+        <ampConst unit="m3 s-1">0.0</ampConst>
+        <Npulse>25.0</Npulse>
+        <Tpulse unit="s">0.0</Tpulse>
+        <freq unit="s-1">8.0</freq>
+        <Tspace unit="s">0.5</Tspace>
+        <runtimeEvaluation>False</runtimeEvaluation>
+        <prescribe>influx</prescribe>
+      </Flow-Sinus2>
+    </boundaryCondition>
+    <boundaryCondition vesselId="1">
+      <ReflectionCoefficient>
+      	<Rt>0.0</Rt>
+      </ReflectionCoefficient>
+          </boundaryCondition>
+    <boundaryCondition vesselId="2">
+       <ReflectionCoefficient>
+       	<Rt>0</Rt>
+       </ReflectionCoefficient>
+    </boundaryCondition><!--
+    <Windkessel-3Elements>
+        <Rc unit="Pa s m-3">None</Rc>
+        <Rtotal>133000000.0</Rtotal>
+        <C unit="m3 Pa-1">3.52355288029e-8</C>
+        <Z unit="Pa s m-3">VesselImpedance</Z>
+      </Windkessel-3Elements>
+    <Windkessel-3Elements>
+        <Rc unit="Pa s m-3">None</Rc>
+        <Rtotal>133000000.0</Rtotal>
+        <C unit="m3 Pa-1">3.52355288029e-8</C>
+        <Z unit="Pa s m-3">VesselImpedance</Z>
+    </Windkessel-3Elements> -->
+  </boundaryConditions>
+  <generalRandomInputs>
+  </generalRandomInputs>
+  <vessels>
+    <vessel Id="0" name="parentVessel">
+      <topology>
+        <leftDaughter>1</leftDaughter>
+        <rightDaughter>2</rightDaughter>
+        <angleYMother>0</angleYMother>
+      </topology>
+      <geometry>
+        <geometryType>cone</geometryType>
+        <length unit="m">0.5</length>
+        <radiusProximal unit="m">0.0075</radiusProximal>
+        <radiusDistal unit="m">0.005</radiusDistal>
+        <N>50.0</N>
+      </geometry>
+      <compliance>
+        <complianceType>Laplace</complianceType>
+        <constantCompliance>False</constantCompliance>
+        <externalPressure unit="Pa">0.0</externalPressure>
+        <Ps unit="Pa">0</Ps>
+        <As unit="m2">None</As>
+        <betaLaplace unit="Pa">324970.0</betaLaplace>
+        <betaLaplace-polyChaos unit="Pa">292473.0 357467.0</betaLaplace-polyChaos>
+      </compliance>
+      <fluid>
+        <applyGlobalFluid>True</applyGlobalFluid>
+        <my unit="Pa s">1e-06</my>
+        <rho unit="kg m-3">1050.0</rho>
+        <gamma>None</gamma>
+        <dlt>None</dlt>
+      </fluid>
+    </vessel>
+    <vessel Id="1" name="leftDaugther">
+      <topology>
+        <leftDaughter>None</leftDaughter>
+        <rightDaughter>None</rightDaughter>
+        <angleYMother unit="deg">25.0</angleYMother>
+      </topology>
+      <geometry>
+        <geometryType>cone</geometryType>
+        <length unit="m">0.5</length>
+        <radiusProximal unit="m">0.002041241452</radiusProximal>
+        <radiusDistal unit="m">0.001841241452</radiusDistal>
+        <N>25.0</N>
+      </geometry>
+      <compliance>
+        <complianceType>Laplace</complianceType>
+        <constantCompliance>False</constantCompliance>
+        <externalPressure unit="Pa">0.0</externalPressure>
+        <Ps unit="Pa">0.0</Ps>
+        <As unit="m2">None</As>
+        <betaLaplace unit="Pa">796020.0</betaLaplace>
+        <betaLaplace-polyChaos unit="Pa">716418.0 875622.0</betaLaplace-polyChaos>
+      </compliance>
+      <fluid>
+        <applyGlobalFluid>True</applyGlobalFluid>
+        <my unit="Pa s">1e-06</my>
+        <rho unit="kg m-3">1050.0</rho>
+        <gamma>None</gamma>
+      </fluid>
+    </vessel>
+    <vessel Id="2" name="rightDaugther">
+      <topology>
+        <leftDaughter>None</leftDaughter>
+        <rightDaughter>None</rightDaughter>
+        <angleYMother>-25.0</angleYMother>
+      </topology>
+      <geometry>
+        <geometryType>cone</geometryType>
+        <length unit="m">0.5</length>
+        <radiusProximal unit="m">0.0020411</radiusProximal>
+        <radiusDistal unit="m">0.001841241452</radiusDistal>
+        <N>25.0</N>
+      </geometry>
+      <compliance>
+        <complianceType>Laplace</complianceType>
+        <constantCompliance>False</constantCompliance>
+        <externalPressure unit="Pa">0.0</externalPressure>
+        <Ps unit="Pa">0</Ps>
+        <As unit="m2">None</As>
+        <betaLaplace unit="Pa">796020.0</betaLaplace>
+        <betaLaplace-polyChaos unit="Pa">716418.0 875622.0</betaLaplace-polyChaos>
+      </compliance>
+      <fluid>
+        <applyGlobalFluid>True</applyGlobalFluid>
+        <my unit="Pa s">1e-06</my>
+        <rho unit="kg m-3">1050.0</rho>
+        <gamma>None</gamma>
+      </fluid>
+    </vessel>
+  </vessels>
+</singleBifurcation.xml>

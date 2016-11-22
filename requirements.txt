@@ -1,0 +1,11 @@
+numpy>=1.8.2
+PyOpenGL>=3.1.0b2
+pygtk
+pyglet>=1.1
+pydot>=1.0.2
+lxml>=3.4.2
+psutil>=3.1.1
+h5py
+scipy
+chaospy
+
